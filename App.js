@@ -10,26 +10,13 @@ import {
 } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import Feed from './Feed';
+import Home from './Home';
 import Notifications from './Notifications'
+import Gameplay from './Gameplay';
+import Social from './Social';
+import Setting from './Setting';
 
 
-
-function Browser({ navigation }) {
-  return (<View>
-    <View style={{ flexDirection: 'row', marginTop: 30, marginLeft: 10 }}>
-      <TouchableOpacity  >
-        <Icon name="align-justify" size={30} color="black"
-          onPress={() => navigation.dispatch(DrawerActions.openDrawer())} />
-
-      </TouchableOpacity>
-      <Text style={{ alignSelf: 'center', marginLeft: 100 }} >Notifications Screen</Text>
-    </View>
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Browser Screen</Text>
-    </View></View>
-  );
-}
 
 function CustomDrawerContent(props) {
   return (
@@ -53,9 +40,41 @@ const Drawer = createDrawerNavigator();
 function MyDrawer() {
   return (
     <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />}>
-      <Drawer.Screen name="Feed" component={Feed} ></Drawer.Screen>
-      <Drawer.Screen name="Notifications" component={Notifications} />
-      <Drawer.Screen name="Browser" component={Browser} />
+      <Drawer.Screen name="Home" component={Home}
+        options={{
+          drawerIcon: config => <Icon name="home" size={20} color="#336699"
+            style={{ paddingHorizontal: 10 }}
+            onPress={() => navigation.dispatch(DrawerActions.openDrawer())} />
+        }}
+      ></Drawer.Screen>
+      <Drawer.Screen name="Notifications" component={Notifications}
+        options={{
+          drawerIcon: config => <Icon name="bell" size={20} color="#336699"
+            style={{ paddingHorizontal: 10 }}
+            onPress={() => navigation.dispatch(DrawerActions.openDrawer())} />
+        }}
+      />
+      <Drawer.Screen name="Gameplay" component={Gameplay}
+        options={{
+          drawerIcon: config => <Icon name="gamepad" size={20} color="#336699"
+            style={{ paddingHorizontal: 10 }}
+            onPress={() => navigation.dispatch(DrawerActions.openDrawer())} />
+        }}
+      />
+      <Drawer.Screen name="Social" component={Social}
+        options={{
+          drawerIcon: config => <Icon name="comments" size={20} color="#336699"
+            style={{ paddingHorizontal: 10 }}
+            onPress={() => navigation.dispatch(DrawerActions.openDrawer())} />
+        }}
+      />
+      <Drawer.Screen name="Setting" component={Setting}
+        options={{
+          drawerIcon: config => <Icon name="cog" size={20} color="#336699"
+            style={{ paddingHorizontal: 10 }}
+            onPress={() => navigation.dispatch(DrawerActions.openDrawer())} />
+        }}
+      />
     </Drawer.Navigator>
   );
 }

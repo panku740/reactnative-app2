@@ -10,15 +10,15 @@ import {
 } from '@react-navigation/drawer';
 import { Container, Header, Content, Footer, Title } from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Notifications from './Notifications'
+import Notifications from './Notifications';
+import Gameplay from './Gameplay';
 
-
-function Feed({ navigation }) {
+function Home({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'stretch' }}>
       <View style={{ flexDirection: 'row', marginTop: 30, marginLeft: 10 }}>
         <TouchableOpacity  >
-          <Icon name="align-justify" size={30} color="#336699"
+          <Icon name="align-justify" size={28} color="#336699"
             onPress={() => navigation.dispatch(DrawerActions.openDrawer())} />
 
         </TouchableOpacity>
@@ -29,8 +29,7 @@ function Feed({ navigation }) {
 
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
-          <Icon name="mobile" size={600} color="black"
-            onPress={() => navigation.dispatch(DrawerActions.openDrawer())} />
+         
 
           <Button
             title="Toggle drawer"
@@ -45,12 +44,12 @@ function Feed({ navigation }) {
           <Icon name="home" size={35} color="#ffffff"
             style={{ paddingHorizontal: 33 }}
             onPress={() => navigation.dispatch(DrawerActions.openDrawer())} />
-          <Icon name="align-justify" size={35} color="#ffffff"
+          <Icon name="gamepad" size={35} color="#ffffff"
             style={{ paddingHorizontal: 33 }}
-            onPress={() => navigation.dispatch(DrawerActions.openDrawer())} />
-          <Icon name="align-justify" size={35} color="#ffffff"
+            onPress={() =>navigation.navigate('Gameplay')} />
+          <Icon name="comments" size={35} color="#ffffff"
             style={{ paddingHorizontal: 33 }}
-            onPress={() => navigation.dispatch(DrawerActions.openDrawer())} />
+            onPress={() => navigation.navigate('Social')} />
           <Icon name="cog" size={35} color="#ffffff"
             style={{ paddingHorizontal: 33 }}
             onPress={() => navigation.navigate('Notifications')} />
@@ -61,4 +60,4 @@ function Feed({ navigation }) {
   );
 }
 
-export default Feed;
+export default Home;
